@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaFacebookF, FaTwitter, FaInstagram, FaSearch, FaBars } from 'react-icons/fa';
 
@@ -9,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-200 text-white w-full">
+    <header className="bg-gray-50 text-white w-full">
       {/* Top Bar */}
       <div className="bg-green-700 text-sm py-2">
         <div className="container mx-auto flex justify-between items-center py-2 px-4">
@@ -40,7 +42,7 @@ const Header = () => {
       <div className="border-t border-green-700 py-3">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center py-4 px-4">
           <div className="text-sm font-semibold">
-            <img src="/logo.png" alt="Logo" className="h-8" /> {/* Replace with your logo image */}
+            <img src="/logo.png" alt="Logo" className="h-10" /> {/* Replace with your logo image */}
           </div>
           <nav className={`flex-col md:flex-row flex md:flex space-x-6 mt-2 md:mt-0 text-sm md:text-base ${menuOpen ? 'block' : 'hidden'} md:block`}>
             <a href="#" className="text-gray-800 hover:text-gray-400">Home</a>
