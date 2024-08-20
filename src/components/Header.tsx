@@ -41,7 +41,7 @@ const Header = () => {
             </div>
             <div className="flex items-center space-x-1 text-xs">
               <a href="#" className="text-gray-50 hover:text-gray-300">Signin</a>
-              <span>|</span>
+              <span className='text-gray-50'>|</span>
               <a href="#" className="text-gray-50 hover:text-gray-300">Join CIBN</a>
             </div>
           </div>
