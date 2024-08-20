@@ -32,13 +32,13 @@ const Header = () => {
             </div>
           </div>
           {/* Desktop: Social Media and Signin/Join on the Right */}
-          <div className="flex items-center space-x-2 text-xs text-white">
+          <div className="flex items-center space-x-10 text-xs text-white">
             <div className="flex items-center space-x-2 sm:space-x-3">
               <a href="#" className="hover:text-gray-300"><FaFacebookF className="text-xs" /></a>
               <a href="#" className="hover:text-gray-300"><FaTwitter className="text-xs" /></a>
               <a href="#" className="hover:text-gray-300"><FaInstagram className="text-xs" /></a>
             </div>
-            <div className="flex items-center space-x-1 ml-4 text-xs">
+            <div className="flex items-center space-x-2 ml-4 text-xs">
               <a href="#" className="hover:text-gray-300">Signin</a>
               <span>|</span>
               <a href="#" className="hover:text-gray-300">Join CIBN</a>
