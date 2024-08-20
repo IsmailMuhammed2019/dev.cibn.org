@@ -8,26 +8,129 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family:'Poppins', 'Arial', sans-serif;;
+  background-color: #f4f4f4; 
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header styles */
+.header {
+  background-color: #237325; 
+  color: #fff; /* White text */
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+}
+
+.contactInfo a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+}
+
+.socialIcons a {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navMenu {
+  display: flex;
+  gap: 20px;
+}
+
+.navMenu a {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input {
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+
+.searchBar button {
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .topBar {
+    flex-direction: column;
+  }
+
+  .contactInfo, .socialIcons {
+    margin-bottom: 10px;
+  }
+
+  .mainHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navMenu {
+    margin: 10px 0;
+  }
+
+  .searchBar {
+    margin-top: 10px;
   }
 }
