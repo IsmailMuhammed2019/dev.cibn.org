@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-50 text-white w-full">
+    <header className="bg-gray-200 text-white w-full">
       {/* Top Bar */}
       <div className="bg-green-700 text-sm py-2">
         <div className="container mx-auto flex justify-between items-center py-2 px-4">
@@ -41,26 +41,44 @@ const Header = () => {
       {/* Main Header */}
       <div className="border-t border-green-700 py-3">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center py-4 px-4">
-          <div className="text-sm font-semibold">
-            <img src="/logo.png" alt="Logo" className="h-10" /> {/* Replace with your logo image */}
+          {/* Mobile View - Align Logo, Search Bar, and Burger Icon Horizontally */}
+          <div className="flex justify-between items-center w-full md:hidden">
+            <div className="text-sm font-semibold">
+              <img src="/logo.png" alt="Logo" className="h-8" /> {/* Replace with your logo image */}
+            </div>
+            <div className="relative flex-1 mx-4">
+              <input 
+                type="text" 
+                placeholder="Search..." 
+                className="p-2 pl-8 text-sm border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 w-full" 
+              />
+              <FaSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            </div>
+            <button className="ml-4 text-gray-800" onClick={toggleMenu}>
+              <FaBars />
+            </button>
           </div>
-          <nav className={`flex-col md:flex-row flex md:flex space-x-6 mt-2 md:mt-0 text-sm md:text-base ${menuOpen ? 'block' : 'hidden'} md:block`}>
-            <a href="#" className="text-gray-800 hover:text-gray-400">Home</a>
-            <a href="#" className="text-gray-800 hover:text-gray-400">About</a>
-            <a href="#" className="text-gray-800 hover:text-gray-400">Services</a>
-            <a href="#" className="text-gray-800 hover:text-gray-400">Contact</a>
-          </nav>
-          <div className="relative mt-2 md:mt-0 flex items-center space-x-2">
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              className="p-2 pl-8 text-sm border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 w-full" 
-            />
-            <FaSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
+
+          {/* Desktop View - Normal Layout */}
+          <div className="hidden md:flex justify-between items-center w-full">
+            <div className="text-sm font-semibold">
+              <img src="/logo.png" alt="Logo" className="h-8" /> {/* Replace with your logo image */}
+            </div>
+            <nav className={`flex space-x-6 mt-2 md:mt-0 text-sm md:text-base ${menuOpen ? 'block' : 'hidden'} md:block`}>
+              <a href="#" className="text-gray-800 hover:text-gray-400">Home</a>
+              <a href="#" className="text-gray-800 hover:text-gray-400">About</a>
+              <a href="#" className="text-gray-800 hover:text-gray-400">Services</a>
+              <a href="#" className="text-gray-800 hover:text-gray-400">Contact</a>
+            </nav>
+            <div className="relative mt-2 md:mt-0 flex items-center space-x-2">
+              <input 
+                type="text" 
+                placeholder="Search..." 
+                className="p-2 pl-8 text-sm border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 w-full" 
+              />
+              <FaSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            </div>
           </div>
-          <button className="md:hidden ml-4 text-gray-800" onClick={toggleMenu}>
-            <FaBars />
-          </button>
         </div>
       </div>
     </header>
