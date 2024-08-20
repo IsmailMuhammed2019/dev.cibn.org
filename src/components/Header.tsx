@@ -1,22 +1,27 @@
 "use client";
 
 import { useState } from 'react';
-import { FaEnvelope, FaPhone, FaFacebookF, FaTwitter, FaInstagram, FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaFacebookF, FaTwitter, FaInstagram, FaSearch, FaBars, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const toggleServices = () => {
+    setServicesOpen(!servicesOpen);
+  };
+
   return (
-    <header className="bg-gray-200 text-white w-full">
+    <header className="bg-gray-200 w-full">
       {/* Top Bar */}
       <div className="bg-green-700 text-xs py-2">
-        <div className="container mx-auto px-4">
-          {/* Centered Email and Phone Number */}
-          <div className="flex items-center justify-center space-x-4">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+          {/* Desktop: Email and Phone on the Left */}
+          <div className="flex space-x-4">
             <div className="flex items-center space-x-1 text-xs text-white hover:text-gray-400">
               <FaEnvelope className="text-xs" />
               <a href="mailto:cibn@cibng.org">cibn@cibng.org</a>
@@ -26,14 +31,14 @@ const Header = () => {
               <a href="tel:+1234567890">0700-DIAL-CIBN</a>
             </div>
           </div>
-          {/* Social Media Icons and Signin/Join Links */}
-          <div className="flex justify-center mt-2 text-xs text-white">
+          {/* Desktop: Social Media and Signin/Join on the Right */}
+          <div className="flex items-center space-x-2 text-xs text-white">
             <div className="flex items-center space-x-2 sm:space-x-3">
               <a href="#" className="hover:text-gray-300"><FaFacebookF className="text-xs" /></a>
               <a href="#" className="hover:text-gray-300"><FaTwitter className="text-xs" /></a>
               <a href="#" className="hover:text-gray-300"><FaInstagram className="text-xs" /></a>
             </div>
-            <div className="flex items-center space-x-1 ml-4">
+            <div className="flex items-center space-x-1 ml-4 text-xs">
               <a href="#" className="hover:text-gray-300">Signin</a>
               <span>|</span>
               <a href="#" className="hover:text-gray-300">Join CIBN</a>
@@ -66,12 +71,27 @@ const Header = () => {
           {/* Desktop View - Normal Layout */}
           <div className="hidden md:flex justify-between items-center w-full">
             <div className="text-sm font-semibold">
-              <img src="/logo.png" alt="Logo" className="h-8" /> {/* Replace with your logo image */}
+              <img src="/logo.png" alt="Logo" className="h-12" /> {/* Increased logo size */}
             </div>
-            <nav className={`flex space-x-6 mt-2 md:mt-0 text-sm md:text-base`}>
+            <nav className="flex space-x-6 mt-2 md:mt-0 text-sm md:text-base">
               <a href="#" className="text-gray-800 hover:text-gray-400">Home</a>
               <a href="#" className="text-gray-800 hover:text-gray-400">About</a>
-              <a href="#" className="text-gray-800 hover:text-gray-400">Services</a>
+              <div className="relative group">
+                <button
+                  className="flex items-center text-gray-800 hover:text-gray-400"
+                  onClick={toggleServices}
+                >
+                  Services
+                  {servicesOpen ? <FaChevronUp className="ml-1" /> : <FaChevronDown className="ml-1" />}
+                </button>
+                {servicesOpen && (
+                  <div className="absolute left-0 mt-2 w-48 bg-green-800 text-gray-50">
+                    <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 1</a>
+                    <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 2</a>
+                    <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 3</a>
+                  </div>
+                )}
+              </div>
               <a href="#" className="text-gray-800 hover:text-gray-400">Contact</a>
             </nav>
             <div className="relative mt-2 md:mt-0 flex items-center space-x-2">
@@ -92,16 +112,24 @@ const Header = () => {
           <button className="absolute top-4 right-4 text-gray-50" onClick={toggleMenu}>
             <FaTimes size={24} />
           </button>
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-4 w-full px-4">
             <a href="#" className="text-gray-50 hover:text-gray-300">Home</a>
             <a href="#" className="text-gray-50 hover:text-gray-300">About</a>
             <div className="relative group">
-              <a href="#" className="text-gray-50 hover:text-gray-300">Services</a>
-              <div className="absolute left-0 mt-2 w-48 bg-green-800 text-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 1</a>
-                <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 2</a>
-                <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 3</a>
-              </div>
+              <button
+                className="flex items-center text-gray-50 hover:text-gray-300 w-full text-left"
+                onClick={toggleServices}
+              >
+                Services
+                {servicesOpen ? <FaChevronUp className="ml-2" /> : <FaChevronDown className="ml-2" />}
+              </button>
+              {servicesOpen && (
+                <div className="mt-2 w-full bg-green-800 text-gray-50">
+                  <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 1</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 2</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-green-600">Service 3</a>
+                </div>
+              )}
             </div>
             <a href="#" className="text-gray-50 hover:text-gray-300">Contact</a>
           </nav>
