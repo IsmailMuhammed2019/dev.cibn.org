@@ -13,23 +13,23 @@ const Header = () => {
   return (
     <header className="bg-gray-200 text-white w-full">
       {/* Top Bar */}
-      <div className="bg-green-700 text-sm py-2">
-        <div className="container mx-auto flex justify-between items-center py-2 px-4">
-          <div className="flex items-center space-x-4">
-            <a href="mailto:cibn@cibng.org" className="flex items-center space-x-2 text-xs text-white hover:text-gray-400">
+      <div className="bg-green-700 text-xs py-2">
+        <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            <a href="mailto:cibn@cibng.org" className="flex items-center space-x-1 text-xs text-white hover:text-gray-400">
               <FaEnvelope className="text-xs" />
               <span>cibn@cibng.org</span>
             </a>
-            <a href="tel:+1234567890" className="flex items-center space-x-2 text-xs text-white hover:text-gray-400">
+            <a href="tel:+1234567890" className="flex items-center space-x-1 text-xs text-white hover:text-gray-400">
               <FaPhone className="text-xs" />
               <span>0700-DIAL-CIBN</span>
             </a>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3 mt-2 sm:mt-0">
             <a href="#" className="text-white hover:text-gray-300"><FaFacebookF className="text-xs" /></a>
             <a href="#" className="text-white hover:text-gray-300"><FaTwitter className="text-xs" /></a>
             <a href="#" className="text-white hover:text-gray-300"><FaInstagram className="text-xs" /></a>
-            <div className="flex items-center space-x-2 text-xs hover:text-gray-400">
+            <div className="flex items-center space-x-1 text-xs hover:text-gray-400">
               <a href="#" className="text-white hover:text-gray-300">Signin</a>
               <span className="text-white">|</span>
               <a href="#" className="text-white hover:text-gray-300">Join CIBN</a>
@@ -39,7 +39,7 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className="border-t border-green-700 py-3">
+      <div className="border-t border-green-700 py-3 bg-gray-50">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center py-4 px-4">
           {/* Mobile View - Align Logo, Search Bar, and Burger Icon Horizontally */}
           <div className="flex justify-between items-center w-full md:hidden">
