@@ -19,9 +19,9 @@ const Header = () => {
     <header className="bg-gray-200 w-full">
       {/* Top Bar */}
       <div className="bg-green-700 text-xs py-2">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          {/* Desktop: Email and Phone on the Left */}
-          <div className="flex space-x-4">
+        <div className="container mx-auto px-4 flex flex-col space-y-2">
+          {/* Row 1: Email on the left and Phone Number on the right */}
+          <div className="flex justify-between">
             <div className="flex items-center space-x-1 text-xs text-white hover:text-gray-400">
               <FaEnvelope className="text-xs" />
               <a href="mailto:cibn@cibng.org">cibn@cibng.org</a>
@@ -31,17 +31,18 @@ const Header = () => {
               <a href="tel:+1234567890">0700-DIAL-CIBN</a>
             </div>
           </div>
-          {/* Desktop: Social Media and Signin/Join on the Right */}
-          <div className="flex items-center space-x-10 text-xs text-white">
+
+          {/* Row 2: Social Media Icons on the left and Signin/Join on the right */}
+          <div className="flex justify-between">
             <div className="flex items-center space-x-2 sm:space-x-3">
-              <a href="#" className="hover:text-gray-300"><FaFacebookF className="text-xs" /></a>
-              <a href="#" className="hover:text-gray-300"><FaTwitter className="text-xs" /></a>
-              <a href="#" className="hover:text-gray-300"><FaInstagram className="text-xs" /></a>
+              <a href="#" className="text-gray-50 hover:text-gray-300"><FaFacebookF className="text-xs" /></a>
+              <a href="#" className="text-gray-50 hover:text-gray-300"><FaTwitter className="text-xs" /></a>
+              <a href="#" className="text-gray-50 hover:text-gray-300"><FaInstagram className="text-xs" /></a>
             </div>
-            <div className="flex items-center space-x-2 ml-4 text-xs">
-              <a href="#" className="hover:text-gray-300">Signin</a>
+            <div className="flex items-center space-x-1 text-xs">
+              <a href="#" className="text-gray-50 hover:text-gray-300">Signin</a>
               <span>|</span>
-              <a href="#" className="hover:text-gray-300">Join CIBN</a>
+              <a href="#" className="text-gray-50 hover:text-gray-300">Join CIBN</a>
             </div>
           </div>
         </div>
